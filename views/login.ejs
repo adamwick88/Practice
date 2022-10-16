@@ -1,0 +1,41 @@
+<%- include('partials/header') -%>
+
+<main class="container">
+  <div class="flex flex-col mb-3 justify-center items-center">
+    <section class="lex flex-col mb-3 justify-center items-center">
+      <% if (locals.messages.errors) { %> <% messages.errors.forEach( el => { %>
+      <div class="alert alert-danger"><%= el.msg %></div>
+      <% }) %> <% } %> <% if (locals.messages.info) { %> <%
+      messages.info.forEach( el => { %>
+      <div class="alert alert-info"><%= el.msg %></div>
+      <% }) %> <% } %>
+      <form action="/login" method="POST">
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label"
+            >Email address</label
+          >
+          <input
+            type="email"
+            class="form-control"
+            id="exampleInputEmail1"
+            aria-describedby="emailHelp"
+            name="email"
+          />
+        </div>
+        <div class="lex flex-col mb-3 justify-center items-center">
+          <label for="exampleInputPassword1" class="form-label">Password</label>
+          <input
+            type="password"
+            class="form-control"
+            id="exampleInputPassword1"
+            name="password"
+          />
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+    </section>
+  </div>
+</main>
+
+<%- include('partials/footer') -%>
